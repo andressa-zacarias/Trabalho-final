@@ -1,20 +1,25 @@
-namespace TrabalhoFinal
+using System;
+namespace TrabalhoFinal.Financial
 {
     public class Category
     {
-        internal int CategoryId;
+       public Category(int categoryid, string categoryname , DateTime categorydate, string type){
+        if (categoryname == null)
+                throw new System.Exception("");
 
-        public Category(int categoryid, string categoryname, string categorydate)
-        {
             CategoryId = categoryid;
             CategoryName = categoryname;
             CategoryDate = categorydate;
-
-        }
-        public int IdCategory { get; set; }
+            Type = type;
+       }
+        public int CategoryId { get; set; }
 
         public string CategoryName { get; set; }
 
-        public string CategoryDate { get; set; }
-    }    
+        public DateTime CategoryDate { get; set; }
+
+        public string Type { get; set; }
+
+    }
+       
 }
