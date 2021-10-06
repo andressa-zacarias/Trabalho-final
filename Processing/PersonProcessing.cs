@@ -20,10 +20,16 @@ namespace TrabalhoFinal.Processing
             // Retorna um resultado login
 
             var personwithemail = userDatabase.SearchByEmail(email);
-            if (personwithemail.Password == password)
+            if(personwithemail == null)
+            {
+                return new LoginResult(false, null);
+            }
+            if (personwithemail.Password.Value == password.Value)
             {
                 return new LoginResult(true, personwithemail);
             }
+            return new LoginResult(false, null);
+
 
             // SOLID
             // Single Responsibility - fazer uma coisa bem feita, limitar o impacto das mudanças
@@ -32,7 +38,7 @@ namespace TrabalhoFinal.Processing
             // Interface Segregation
             // Dependency Inversion
 
-            return new LoginResult(false, null);
+            
         }
 
         public Person Register(string name, Email email, Cpf cpf, Password password)

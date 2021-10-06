@@ -16,6 +16,6 @@ namespace TrabalhoFinal.User
             Value = valuePassword;
         }
 
-        public string Value { get; }
+        public string Value { get; set; }
     }
 }
